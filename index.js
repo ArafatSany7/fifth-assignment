@@ -5,7 +5,6 @@ let selectedSeats = [];
 
 for (const btn of allBtn) {
   btn.addEventListener("click", function () {
-    // console.log(btn.id);
 
     if (selectedSeats.includes(btn.id) === false && selectedSeats.length < 4) {
       const selectedSeatNum = btn.innerText;
@@ -28,15 +27,13 @@ for (const btn of allBtn) {
       setBgColorById(btn.id);
       selectedSeats.push(btn.id);
 
-      // total cost
-
       const totalCost = document.getElementById("total-cost");
       const totalCostText = totalCost.innerText;
       const totalCostTextValue = parseInt(totalCostText);
 
       const netTotalCost = totalCostTextValue + 550;
 
-      //seat count
+      //seat remaining
 
       const seatCount = document.getElementById("seat-count");
       const seatCountText = seatCount.innerText;
@@ -44,7 +41,7 @@ for (const btn of allBtn) {
 
       const updateSeatCount = seatCountTextValue + 1;
 
-      //update available seat
+ 
       const availableSeatCount = document.getElementById("available-seat");
       const availableSeatCountText = availableSeatCount.innerText;
       const availableSeatCountTextValue = parseInt(availableSeatCountText);
@@ -56,7 +53,7 @@ for (const btn of allBtn) {
       setInnerText("available-seat", updateAvailableSeatCount);
       grandTotalCost();
 
-      //submit btn enable
+      //sub enable
       function enableSubmitBtn() {
         document
           .getElementById("phone-number")
@@ -127,7 +124,6 @@ function applyCoupon() {
   }
 
   console.log(typeof couponText);
-  //document.getElementById("coupon-sec").setAttribute("class", "hidden");
 }
 
 function handleSubmitBtn() {}
@@ -141,7 +137,7 @@ function setBgColorById(elementId) {
   element.classList.add("bg-[#1DD100]");
 }
 
-//modal
+//modal success
 const openBtn = document.getElementById("submit-btn");
 const closeBtn = document.getElementById("close-modal");
 const modal = document.getElementById("modal");
